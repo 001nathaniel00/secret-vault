@@ -57,7 +57,7 @@ android.enable_androidx = True
 android.presplash_color = #000000
 
 # (str) Format of the release artifact (aab is the modern Google Play standard)
-android.release_artifact = aab
+android.release_artifact = apk
 
 
 [buildozer]
