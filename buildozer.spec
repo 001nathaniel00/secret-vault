@@ -19,9 +19,14 @@ source.include_exts = py,kv,png,jpg,jpeg,gif,webp,mp4,mov,mkv,3gp,ttf,json
 version = 1.0
 
 # (list) Application requirements
-# ffpyplayer and ffmpeg have been REMOVED to prevent build crashes.
-# Kivy will natively play .mp4 files using Android's default media player.
-requirements = python3==3.11,hostpython3==3.11,kivy==2.3.0,plyer,pillow
+# python3/hostpython3 pinned to a real, currently-published patch release.
+# A bare "3.11" isn't a valid version for p4a's downloader (it 404s trying
+# to fetch it) - it needs the full major.minor.patch string.
+# ffpyplayer restored: it's required for Kivy's VideoPlayer to work at all
+# on Android; the earlier crashes were Python 3.14 compatibility issues,
+# not ffpyplayer itself.
+requirements = python3==3.11.15,hostpython3==3.11.15,kivy==2.3.0,plyer,pillow,ffpyplayer
+
 # (str) Supported orientation
 orientation = portrait
 
@@ -55,7 +60,8 @@ android.enable_androidx = True
 # (str) Presplash background color (Matches your kv background)
 android.presplash_color = #000000
 
-# (str) Format of the release artifact (apk for direct installation)
+# (str) Format of the release artifact (only applies to `buildozer android
+# release`, not the debug build your CI currently runs)
 android.release_artifact = apk
 
 [buildozer]
