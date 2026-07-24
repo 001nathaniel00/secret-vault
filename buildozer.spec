@@ -21,8 +21,7 @@ version = 1.0
 # (list) Application requirements
 # ffpyplayer and ffmpeg have been REMOVED to prevent build crashes.
 # Kivy will natively play .mp4 files using Android's default media player.
-requirements = python3==3.11,kivy==2.3.0,plyer,pillow
-
+requirements = python3==3.11,hostpython3==3.11,kivy==2.3.0,plyer,pillow
 # (str) Supported orientation
 orientation = portrait
 
