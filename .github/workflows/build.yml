@@ -29,7 +29,7 @@ jobs:
           pip install --upgrade Cython buildozer
 
       - name: Build with Buildozer
-        run: buildozer android debug
+        run: yes | buildozer android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
